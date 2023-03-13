@@ -1,0 +1,35 @@
+---
+
+let characters: any[] = [];
+
+const getCharacters = async() => {
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    try {
+        const data = await response.json();
+        const characters = data.results;
+        // console.log("🚀 ~ file: character.astro:8 ~ getCharacters ~ characters:", characters)
+    } catch (error) {
+        console.log("🚀 ~ file: character.astro:9 ~ getCharacters ~ error:", error)
+    }
+}
+
+getCharacters();
+
+---
+
+
+    <div>
+        <ul>
+            {
+                characters ?
+                characters.map( character => 
+                (<li>
+                    <h1>{character.name}</h1>
+                    <img src={character.img} alt={character.name}/>
+                </li>)
+                )
+                : <h1>No hay personajes</h1>
+            }
+        </ul>
+
+    </div>
