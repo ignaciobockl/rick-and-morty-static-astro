@@ -1,12 +1,108 @@
+---
+const navItems = [
+  {
+    id: 0,
+    name: 'HOME',
+    path: '/',
+  },
+  {
+    id: 1,
+    name: 'ABOUT',
+    path: '/about',
+  },
+  {
+    id: 2,
+    name: 'CHARACTERS',
+    path: '/character',
+  },
+  {
+    id: 3,
+    name: 'LOCATIONS',
+    path: '/',
+  },
+  {
+    id: 4,
+    name: 'EPISODES',
+    path: '/',
+  },
+  {
+    id: 5,
+    name: 'CONTACT US',
+    path: '/contact',
+  },
+];
+---
+
 <nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/character">Characters</a></li>
+  <div class='div_nav'>
+    <div class='div_img'>
+      <img alt='rick-icono' class='img_icono' src='/img/nav/icono.png' />
+    </div>
+    <ul class='ul_textLink'>
+      {
+        navItems.map((nav) => (
+          <li class='li_textLink'>
+            <a class='a_textLink' href={nav.path}>
+              {nav.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
+  </div>
 </nav>
 
 <style>
-    * {
-        background-color: darkkhaki;
-    }
+  * {
+    background-color: #273c6f;
+    color: #fff;
+  }
+
+  .a_textLink {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .img_icono {
+    height: 70px;
+    width: 70px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  li > a {
+    text-decoration: none;
+  }
+
+  .li_textLink {
+    padding: 7.5px;
+  }
+
+  .div_img {
+    margin-bottom: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 15px;
+  }
+  .div_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .ul_textLink {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 25px;
+  }
+
+  @media (min-width: 968px) {
+  /* * {
+    background-color: red;
+  } */
+}
 </style>
